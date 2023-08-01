@@ -12,8 +12,8 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@fontsource-variable/arima": "^5.0.5",
     "@fontsource-variable/manrope": "^5.0.5",
-    "@fontsource-variable/open-sans": "^5.0.6",
     "@mui/icons-material": "^5.14.1",
     "@mui/material": "^5.14.1",
     "axios": "^1.4.0",

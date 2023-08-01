@@ -1,80 +1,236 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef  } from 'react';
 import { AppBar, Toolbar, Typography, Box, Container } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import '@fontsource-variable/open-sans';
 import '@fontsource-variable/manrope';
-
-const pages = ['Our Products', 'About Us', 'Contact Us'];
+import logoImg from './../assets/images/logo.png'
 
 const NavigationBar = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleMenuClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const renderCustomMenuItem = (element) => {
-    return (
-      <Typography variant="h6" sx={{fontFamily:'Open Sans Regular 400', display: 'inline-block', margin: '0 16px' }}>
-        {element}
-      </Typography>
-    );
-  };
   
-  const renderTextAlignWithIcon = (text) => (
-    <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+  const [showProductDropdown, setShowProductDropdown] = useState(false);
+  const [showAboutDropdown, setShowAboutDropdown] = useState(false);
+  const productDropdownRef = useRef(null);
+  const aboutDropdownRef = useRef(null);
+  const productIconRef = useRef(null);
+  const aboutIconRef = useRef(null);  
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if the user has scrolled
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    // Add the scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  function clickOutSideIconBox(ref, exceptionRef, onClickOutSide){
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (exceptionRef.current.contains(event.target)){
+          return;
+        }
+  
+        // Check if the clicked target is inside the dropdown
+        if (
+          ref.current && !ref.current.contains(event.target) 
+        ) {
+          onClickOutSide();
+        }
+      };
+  
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref, onClickOutSide]);
+  }
+
+  clickOutSideIconBox(productDropdownRef, productIconRef, () => setShowProductDropdown(false));
+  clickOutSideIconBox(aboutDropdownRef, aboutIconRef, () => setShowAboutDropdown(false));
+
+  const handleProductDropdownToggle = () => {
+    setShowProductDropdown((prevShowProductDropdown) => !prevShowProductDropdown);
+    setShowAboutDropdown(false);
+  };
+
+  const handleAboutDropdownToggle = () => {
+    setShowAboutDropdown((prevShowAboutDropdown) => !prevShowAboutDropdown);
+    setShowProductDropdown(false);
+  };
+
+  const renderCustomNavItem = (element) => (
+      <Typography 
+        variant="h6" 
+        sx={{
+          fontFamily:'Manrope Variable', fontWeight: 550,
+          display: 'inline-block', margin: '0 16px' 
+        }}>
+          {element}
+      </Typography>
+  );
+
+  const renderCustomNavItemWithLink = (element, source) => (
+    <Typography 
+      variant="h6"
+      component="a"
+      href = {source} 
+      sx={{
+        color:'inherit',
+        textDecoration:'none',
+        fontFamily:'Manrope Variable', fontWeight: 550,
+        display: 'inline-block', margin: '0 16px' 
+      }}>
+        {element}
+    </Typography>
+  );
+
+
+  
+  const renderTextAlignWithIcon = (text, handleDropDownToggle, iconId, iconRef) => (
+    <Box id={iconId}  sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
         <span>{text}</span>
-        <div
-            style={{
+        <Box
+            ref={iconRef}
+            onClick={handleDropDownToggle}
+            sx={{
                 display: 'flex',
                 alignItems: 'center',
                 padding: '4px',
                 borderRadius: '15%',
-                backgroundColor: 'transparent',
-                transition: 'background-color 0.3s',
+                background: 'transparent',
                 '&:hover': {
-                    backgroundColor: '#FAF0E6',
+                    background: '#F5F5F5',
                 },
             }}
         >
             <ArrowDropDownIcon/>
-        </div>
-    </div>
+        </Box>
+    </Box>
   );
 
+  const renderDropDownMenu = (dropDownItems, parentElement, dropDownRef) => {
+    const {top, height, left, width} = parentElement.getBoundingClientRect();
+    return (
+      <Box
+        ref={dropDownRef}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'absolute',
+          backgroundColor: 'white',
+          top: `${top + height + 6}px`,
+          left: `${left - width/5.5}px`,
+          width: '220px',
+          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+          padding: "0 0 10px 0"
+        }}
+      >                  
+        {dropDownItems.map((item, index) => (
+        <React.Fragment key={`dropdown-item-${index}`}> {/* Add a unique key prop for each item */}
+          {item}
+        </React.Fragment>
+      ))}
+      </Box>
+    );
+  };
+
+  const renderDropDownItem = (text, source) => (
+      <Typography 
+        variant="h6"  
+        fontSize={14}
+        component="a"
+        href = {source}
+        sx={{
+          color:'inherit',
+          textDecoration:'none',
+          fontFamily:'Manrope Variable', 
+          fontWeight: 750,  
+          padding: '8px 0px 8px 16px',
+          background: 'transparent',
+          '&:hover': {
+            background: '#F5F5F5',
+          },
+      }}>
+        {text}
+      </Typography>
+  );
+
+
   return (
-    <AppBar position='static' color='transparent'>
+    <AppBar position='sticky' color='transparent' sx={{ zIndex: "100", backgroundColor: "white", boxShadow: scrolled ?'0px 4px 8px rgba(0, 0, 0, 0.1)': 'none',}} >
         <Container maxWidth="false" disableGutters>
-            <Toolbar disableGutters justifyContent='space-between'>
-                <Box flexGrow={1} display={'flex'} justifyContent={'flex-start'} flexBasis={0}>
-                    {renderCustomMenuItem(renderTextAlignWithIcon('Giới Thiệu'))}
-                    {renderCustomMenuItem(renderTextAlignWithIcon('Sản Phẩm'))}
-                    {renderCustomMenuItem('Liên Lạc')}
+            <Toolbar disableGutters>
+                <Box flexGrow={1.5} display={'flex'} justifyContent={'flex-start'} flexBasis={0}>
+                    {renderCustomNavItem(renderTextAlignWithIcon('SẢN PHẨM', handleProductDropdownToggle, 'product-icon', productIconRef))}
+                    {showProductDropdown && renderDropDownMenu([
+                      renderDropDownItem('DẦU GỘI', '/'),
+                      renderDropDownItem('SỮA TẮM', '/'),
+                      renderDropDownItem('BỘT GỘI ĐẦU', '/'),
+                      ],
+                      document.getElementById('product-icon'),
+                      productDropdownRef
+                    )}
+                    
+
+                    {renderCustomNavItem(renderTextAlignWithIcon('GIỚI THIỆU', handleAboutDropdownToggle, 'about-icon', aboutIconRef))}
+                    {showAboutDropdown && renderDropDownMenu([
+                      renderDropDownItem('CÂU CHUYỆN CỦA CÔ TƯ', '/'),
+                      renderDropDownItem('LỊCH SỬ PHÁT TRIỂN', '/'),
+                      renderDropDownItem('THÀNH TÍCH', '/'),
+                      renderDropDownItem('BLOG', '/'),
+                      ],
+                      document.getElementById('about-icon'),
+                      aboutDropdownRef
+                    )}
+
+                    {renderCustomNavItemWithLink('LIÊN LẠC','/contact')}
                 </Box>
 
                 <Box flexGrow={1} flexBasis={0} display={'flex'} justifyContent="center">
                     <Typography
+                            //variant="h4"
                             justifyContent='center'
-                            variant="h4"
                             component="a"
                             href="/"
                             sx={{
-                                fontFamily: 'Manrope Variable',
+                                //fontFamily: 'Manrope Variable',
                                 display: 'flex',
-                                fontWeight: 700,
-                                color: 'inherit',
-                                textDecoration: 'none',
+                                //fontWeight: 700,
+                                //color: 'inherit',
+                                //textDecoration: 'none',
+                                //letterSpacing:'5px'
                         }}>
-                            Cô Tư
+                            <Box
+                            sx={{
+                              backgroundImage: `url(${logoImg})`, // Replace with your hero image URL
+                              backgroundRepeat: 'no-repeat',
+                              backgroundPosition: 'center',
+                              backgroundSize: 'contain',
+                              height: '80px', // Adjust the height as needed
+                              width: '80px',
+                              margin: '0 auto',
+                              maxWidth: '100%',
+                            }}>
+                      
+                            </Box>
+                     
                     </Typography>
                 </Box>
 
-                <Box flexGrow={1} display={'flex'} justifyContent={'flex-end'} flexBasis={0}>
-                    {renderCustomMenuItem('Mua Ngay')}
+                <Box flexGrow={1.5} display={'flex'} justifyContent={'flex-end'} flexBasis={0}>
+                    {renderCustomNavItem('MUA NGAY')}
+                    {renderCustomNavItem('ĐĂNG NHẬP/ĐĂNG KÍ')}
                 </Box>
             </Toolbar>
         </Container>
