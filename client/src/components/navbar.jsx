@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef  } from 'react';
 import { AppBar, Toolbar, Typography, Box, Container } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import '@fontsource-variable/manrope';
-import logoImg from './../assets/images/logo.png'
+import logoImg from './../assets/images/logo_CoTu.png'
 
 const NavigationBar = () => {
   
@@ -73,7 +73,7 @@ const NavigationBar = () => {
       <Typography 
         variant="h6" 
         sx={{
-          fontFamily:'Manrope Variable', fontWeight: 550,
+          fontFamily:'Manrope Variable', fontWeight: 'bold', fontSize:'15px',
           display: 'inline-block', margin: '0 16px' 
         }}>
           {element}
@@ -88,7 +88,7 @@ const NavigationBar = () => {
       sx={{
         color:'inherit',
         textDecoration:'none',
-        fontFamily:'Manrope Variable', fontWeight: 550,
+        fontFamily:'Manrope Variable', fontWeight: 'bold', fontSize:'15px',
         display: 'inline-block', margin: '0 16px' 
       }}>
         {element}
@@ -106,7 +106,7 @@ const NavigationBar = () => {
             sx={{
                 display: 'flex',
                 alignItems: 'center',
-                padding: '4px',
+                padding: '0 4px',
                 borderRadius: '15%',
                 background: 'transparent',
                 '&:hover': {
@@ -194,7 +194,7 @@ const NavigationBar = () => {
                       aboutDropdownRef
                     )}
 
-                    {renderCustomNavItemWithLink('LIÊN LẠC','/contact')}
+                    {renderCustomNavItemWithLink('LIÊN HỆ','/contact')}
                 </Box>
 
                 <Box flexGrow={1} flexBasis={0} display={'flex'} justifyContent="center">
@@ -213,11 +213,11 @@ const NavigationBar = () => {
                         }}>
                             <Box
                             sx={{
-                              backgroundImage: `url(${logoImg})`, // Replace with your hero image URL
+                              backgroundImage: `url(${logoImg})`,
                               backgroundRepeat: 'no-repeat',
                               backgroundPosition: 'center',
                               backgroundSize: 'contain',
-                              height: '80px', // Adjust the height as needed
+                              height: '80px',
                               width: '80px',
                               margin: '0 auto',
                               maxWidth: '100%',
@@ -229,8 +229,7 @@ const NavigationBar = () => {
                 </Box>
 
                 <Box flexGrow={1.5} display={'flex'} justifyContent={'flex-end'} flexBasis={0}>
-                    {renderCustomNavItem('MUA NGAY')}
-                    {renderCustomNavItem('ĐĂNG NHẬP/ĐĂNG KÍ')}
+                    {renderCustomNavItemWithLink('MUA NGAY','/contact')}
                 </Box>
             </Toolbar>
         </Container>

@@ -40,17 +40,17 @@ const HomePage = () => {
 
   const itemList = [
     {
-      imageSrc: botGoiDauImg, // Replace with the image source URL
+      imageSrc: botGoiDauImg,
       title: 'DẦU GỘI BỒ KẾT THẢO MỘC',
       description: 'Description for Image 2',
     },
     {
-      imageSrc: botGoiDauImg, // Replace with the image source URL
+      imageSrc: botGoiDauImg,
       title: 'SỮA TẮM GỪNG NGHỆ',
       description: 'Description for Image 3',
     },
     {
-      imageSrc: botGoiDauImg, // Replace with the image source URL
+      imageSrc: botGoiDauImg,
       title: 'BỘT GỘI ĐẦU 15 VỊ',
       description: 'Description for Image 1',
     },
@@ -62,7 +62,7 @@ const HomePage = () => {
         maxWidth='false'
         sx={{
           //backgroundColor:'#FFEBCD',
-          height: '100vh',
+          height: 'auto',
           width: '1080px',
           margin: '0 auto',
           maxWidth: '100%',
@@ -86,8 +86,8 @@ const HomePage = () => {
             
           </Box>
 
-          {renderTilte("Ghi gi do", 'left')}
-          {renderTitleDescription("Ghi gif ddos", 'left')}
+          {renderTilte("Ghi gì đó", 'left')}
+          {renderTitleDescription("Ghi gì đó", 'left')}
 
         <Grid container spacing={5} justifyContent="center" sx={{paddingTop:"10px"}}>
         {itemList.map((item, index) => (
