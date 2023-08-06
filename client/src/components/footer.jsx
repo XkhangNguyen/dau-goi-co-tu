@@ -4,9 +4,11 @@ import zaloLogo from './../assets/images/logo_Zalo.png';
 import facebookLogo from './../assets/images/logo_Facebook.png';
 import { styled } from '@mui/material/styles';
 import StyledTypography from './styledTypography';
+import useCheckMobileScreen from './checkMobileScreen';
 
 
 const Footer = () => {
+  const isMobile = useCheckMobileScreen();
   return (
     <Box
       sx={{
@@ -15,15 +17,14 @@ const Footer = () => {
         marginTop:'5vh',
         width: '100%',
         minHeight:'15vh',
-        
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="false">
         <Box
           display="flex"
-          justifyContent="space-between"
+          justifyContent="space-around"
           alignItems="center"
-          flexDirection={{ xs: 'column', sm: 'row' }}
+          flexDirection= {isMobile ? 'column' : 'row' }
         >
           <Box>
             <Typography
@@ -32,6 +33,7 @@ const Footer = () => {
                 fontFamily: 'Manrope Variable',
                 fontWeight: 700,
                 marginBottom: '15px',
+                textAlign: isMobile ? 'center' : 'left',
               }}
             >
               CÔ TƯ
@@ -41,51 +43,40 @@ const Footer = () => {
               sx={{
                 fontFamily: 'Manrope Variable',
                 color: 'gray',
+                marginBottom:'15px',
+                textAlign: isMobile ? 'center' : 'left',
               }}
             >
               Địa Chỉ: 83/1C, Phạm Văn Bạch, P.15, Q.Tân Bình, TP.HCM<br />
             </Typography>
           </Box>
+
           <Box mt={{ xs: 2, sm: 0 }}>
             <Typography
               variant="body1"
               sx={{
                 fontFamily: 'Manrope Variable',
                 fontWeight: 700,
-                mb: 2,
+                marginBottom: '10px',
               }}
             >
               TRUY CẬP NHANH
             </Typography>
-            <ul  style={{ listStyleType: 'none', padding: 0 }}>
-              <ListItem>
-                <StyledTypography
-                  variant="body1"
-                  component='a'
-                  href="#products"
-                >
+            
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                <StyledTypography variant="body1" component='a' href="#products" sx={{marginBottom:'6px'}}>
                   TRANG CHỦ
                 </StyledTypography>
-              </ListItem>
-              <ListItem>
-                <StyledTypography
-                  variant="body1"
-                  component='a'
-                  href="#products"
-                >
+                <StyledTypography variant="body1" component='a' href="#products" sx={{marginBottom:'6px'}}>
                   SẢN PHẨM
                 </StyledTypography>
-              </ListItem>
-              <ListItem>
-                <StyledTypography
-                  variant="body1"
-                  component='a'
-                  href="#products"
-                >
+                <StyledTypography variant="body1" component='a' href="#products" sx={{marginBottom:'6px'}}>
                   GIỚI THIỆU
                 </StyledTypography>
-              </ListItem>
-            </ul>
+                <StyledTypography variant="body1" component='a' href="/contact" sx={{marginBottom:'6px'}}>
+                  LIÊN HỆ
+                </StyledTypography>
+            </Box>
           </Box>
           <Box mt={{ xs: 2, sm: 0, textAlign: 'center',   }}>
             <Typography

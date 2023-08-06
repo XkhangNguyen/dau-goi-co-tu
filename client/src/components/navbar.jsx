@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef  } from 'react';
 import { AppBar, Toolbar, Typography, Box, Container } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import '@fontsource-variable/manrope';
-import logoImg from './../assets/images/logo_CoTu.png'
+import logoImg from './../assets/images/logo_CoTu.png';
+
 
 const NavigationBar = () => {
-  
   const [showProductDropdown, setShowProductDropdown] = useState(false);
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const productDropdownRef = useRef(null);
@@ -55,6 +55,7 @@ const NavigationBar = () => {
       };
     }, [ref, onClickOutSide]);
   }
+
 
   clickOutSideIconBox(productDropdownRef, productIconRef, () => setShowProductDropdown(false));
   clickOutSideIconBox(aboutDropdownRef, aboutIconRef, () => setShowAboutDropdown(false));
@@ -168,37 +169,45 @@ const NavigationBar = () => {
 
 
   return (
-    <AppBar position='sticky' color='transparent' sx={{ zIndex: "100", backgroundColor: "white", boxShadow: scrolled ?'0px 4px 8px rgba(0, 0, 0, 0.1)': 'none',}} >
+    <AppBar 
+      position='sticky' 
+      color='transparent' 
+      sx={{ 
+        zIndex: "100", 
+        backgroundColor: "white", 
+        boxShadow: scrolled ?'0px 4px 8px rgba(0, 0, 0, 0.1)': 'none',
+      }} >
         <Container maxWidth="false" disableGutters>
             <Toolbar disableGutters>
-                <Box flexGrow={1.5} display={'flex'} justifyContent={'flex-start'} flexBasis={0}>
-                    {renderCustomNavItem(renderTextAlignWithIcon('SẢN PHẨM', handleProductDropdownToggle, 'product-icon', productIconRef))}
-                    {showProductDropdown && renderDropDownMenu([
-                      renderDropDownItem('DẦU GỘI', '/'),
-                      renderDropDownItem('SỮA TẮM', '/'),
-                      renderDropDownItem('BỘT GỘI ĐẦU', '/'),
-                      ],
-                      document.getElementById('product-icon'),
-                      productDropdownRef
-                    )}
-                    
+               
+              <Box sx={{ flexGrow: 1.5, display: 'flex', justifyContent: 'flex-start', flexBasis: 0 }}>
+                      {renderCustomNavItem(renderTextAlignWithIcon('SẢN PHẨM', handleProductDropdownToggle, 'product-icon', productIconRef))}
+                      {showProductDropdown && renderDropDownMenu([
+                        renderDropDownItem('DẦU GỘI', '/'),
+                        renderDropDownItem('SỮA TẮM', '/'),
+                        renderDropDownItem('BỘT GỘI ĐẦU', '/'),
+                        ],
+                        document.getElementById('product-icon'),
+                        productDropdownRef
+                      )}
+                      
 
-                    {renderCustomNavItem(renderTextAlignWithIcon('GIỚI THIỆU', handleAboutDropdownToggle, 'about-icon', aboutIconRef))}
-                    {showAboutDropdown && renderDropDownMenu([
-                      renderDropDownItem('CÂU CHUYỆN CỦA CÔ TƯ', '/'),
-                      renderDropDownItem('LỊCH SỬ PHÁT TRIỂN', '/'),
-                      renderDropDownItem('THÀNH TÍCH', '/'),
-                      renderDropDownItem('BLOG', '/'),
-                      ],
-                      document.getElementById('about-icon'),
-                      aboutDropdownRef
-                    )}
+                      {renderCustomNavItem(renderTextAlignWithIcon('GIỚI THIỆU', handleAboutDropdownToggle, 'about-icon', aboutIconRef))}
+                      {showAboutDropdown && renderDropDownMenu([
+                        renderDropDownItem('CÂU CHUYỆN CỦA CÔ TƯ', '/'),
+                        renderDropDownItem('LỊCH SỬ PHÁT TRIỂN', '/'),
+                        renderDropDownItem('THÀNH TÍCH', '/'),
+                        renderDropDownItem('BLOG', '/'),
+                        ],
+                        document.getElementById('about-icon'),
+                        aboutDropdownRef
+                      )}
 
-                    {renderCustomNavItemWithLink('LIÊN HỆ','/contact')}
-                </Box>
+                      {renderCustomNavItemWithLink('LIÊN HỆ','/contact')}
+              </Box>
 
-                <Box flexGrow={1} flexBasis={0} display={'flex'} justifyContent="center">
-                    <Typography
+              <Box flexGrow={1} flexBasis={0} display={'flex'} justifyContent="center">
+                <Typography
                             //variant="h4"
                             justifyContent='center'
                             component="a"
@@ -212,25 +221,24 @@ const NavigationBar = () => {
                                 //letterSpacing:'5px'
                         }}>
                             <Box
-                            sx={{
-                              backgroundImage: `url(${logoImg})`,
-                              backgroundRepeat: 'no-repeat',
-                              backgroundPosition: 'center',
-                              backgroundSize: 'contain',
-                              height: '80px',
-                              width: '80px',
-                              margin: '0 auto',
-                              maxWidth: '100%',
-                            }}>
-                      
+                              sx={{
+                                backgroundImage: `url(${logoImg})`,
+                                backgroundRepeat: 'no-repeat',
+                                backgroundPosition: 'center',
+                                backgroundSize: 'contain',
+                                height: '80px',
+                                width: '80px',
+                                margin: '0 auto',
+                                maxWidth: '100%',
+                              }}>
+                                
                             </Box>
-                     
-                    </Typography>
-                </Box>
+                </Typography>
+              </Box>
 
-                <Box flexGrow={1.5} display={'flex'} justifyContent={'flex-end'} flexBasis={0}>
-                    {renderCustomNavItemWithLink('MUA NGAY','/contact')}
-                </Box>
+              <Box flexGrow={1.5} display={'flex'} justifyContent={'flex-end'} flexBasis={0}>
+                {renderCustomNavItemWithLink('MUA NGAY','/contact')}
+              </Box>
             </Toolbar>
         </Container>
     </AppBar>
