@@ -57,7 +57,6 @@ const HomePage = () => {
       <Container 
         maxWidth='false'
         sx={{
-          //backgroundColor:'#FFEBCD',
           height: 'auto',
           width: '1080px',
           margin: '0 auto',
