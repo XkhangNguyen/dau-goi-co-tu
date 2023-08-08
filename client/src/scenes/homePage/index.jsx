@@ -28,7 +28,7 @@ const HomePage = () => {
             sx={{
               textAlign: alignText,
               paddingTop: '2.5vh',
-              paddingBottom:'10px'
+              paddingBottom:'2vh'
             }}
           >
             {text}
@@ -73,7 +73,7 @@ const HomePage = () => {
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
               backgroundSize: 'contain',
-              height: isMobile ? '250px' : '720px',
+              height: isMobile ? '40vh' : '720px',
               width: 'inherit',
               margin: '0 auto',
               maxWidth: '100%',
@@ -85,11 +85,11 @@ const HomePage = () => {
           {renderTilte("SẢN PHẨM TIÊU BIỂU", isMobile ? 'center' : 'left')}
           {renderTitleDescription("Những sản phẩm được làm tại nhà sử dụng những nguồn cung cấp xanh, sạch và bền vững. Cô Tư cam kết mang đến cho bạn trải nghiệm chăm sóc bản thân hiệu quả và thân thiện với môi trường. ", isMobile ? 'center' : 'left')}
 
-        <Grid container spacing={5} justifyContent="center" sx={{paddingTop:"10px", paddingBottom:'50px'}}>
+        <Grid container spacing={5} justifyContent="center" sx={{paddingTop:"2vh", paddingBottom:'8vh'}}>
         {itemList.map((item, index) => (
           <Grid item key={index}>
             <Box component="a" href="/" sx={{ textAlign: isMobile ? 'center' : 'left', textDecoration:'none', color: 'inherit' }}>
-              <img src={item.imageSrc} alt={`Image ${index + 1}`} style={{ width: isMobile ? '210px' : '280px', height: isMobile ? '300px' : '400px' }} />
+              <img src={item.imageSrc} alt={`Image ${index + 1}`} style={{ width: isMobile ? '30vh' : '280px', height: isMobile ? '40vh' : '400px' }} />
               <Typography variant="h5" sx={{paddingTop: '1vh' }}>
                 {item.title}
               </Typography>
@@ -110,7 +110,7 @@ const HomePage = () => {
             paddingBottom: isMobile ? 0 : '50px'
           }}
         >
-          <Box flex="1" paddingRight={isMobile ? 0 : "4vh"} marginTop={isMobile ? '-4vh' : '-10vh'}>
+          <Box flex="1" paddingRight={isMobile ? 0 : "4vh"} marginTop={isMobile ? '-8vh' : '-10vh'}>
             {renderTilte("NGUYÊN LIỆU QUEN THUỘC CỦA NGƯỜI VIỆT",  isMobile ? 'center' : 'left')}
             {renderTitleDescription("Sử dụng các loại thảo mộc đặc trưng của Việt Nam, những sản phẩm của cô Tư luôn đem lại cảm giác thân thuộc nhưng lại rất mới mẻ.", isMobile ? 'center' : 'left')}
           </Box>
@@ -122,10 +122,11 @@ const HomePage = () => {
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center',
                   backgroundSize: 'contain',
-                  height: isMobile ? '500px' : '500px',
-                  width: isMobile ? '300px' : 'inherit',
+                  height: isMobile ? '60vh' : '500px',
+                  width: isMobile ? '50vh' : 'inherit',
                   margin: '0 auto',
                   maxWidth: '100%',
+                  marginTop:isMobile ? '2vh' : 0,
                 }}
             >
                 

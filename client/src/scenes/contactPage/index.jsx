@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Grid, Container, Typography, Box, Button, Snackbar, Alert } from '@mui/material';
 import zaloLogo from './../../assets/images/logo_Zalo.png';
 import facebookLogo from './../../assets/images/logo_Facebook.png';
-
-// import emailLogo from './../../assets/images/logo_Email.png';
+import useCheckMobileScreen from '../../components/checkMobileScreen';
 
 const ContactPage = () => {
+  const isMobile = useCheckMobileScreen();
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
 
@@ -24,11 +24,6 @@ const ContactPage = () => {
           type: 'facebook',
           link: 'https://www.facebook.com/phuong.lethihong.7',
         },
-        // {
-        //   imageSrc: emailLogo,
-        //   title: 'EMAIL',
-        //   description: 'Description for Image 1',
-        // },
     ];
 
 
@@ -79,14 +74,13 @@ const ContactPage = () => {
     <Container 
         maxWidth='false'
         sx={{
-          //backgroundColor:'#FFEBCD',
           minHeight: '65vh',
           height:'auto',
           width: '1080px',
           margin: '0 auto',
           maxWidth: '100%',
           textAlign: 'center',
-          paddingTop: '24px',
+          paddingTop: '4vh',
         }}
       >
         <Typography
@@ -94,7 +88,7 @@ const ContactPage = () => {
           sx={{
             fontFamily: 'Arima Variable',
             fontWeight: 700,
-            marginBottom: '10px',
+            marginBottom: '1vh',
           }}
         >
           LIÊN HỆ VỚI CÔ TƯ
@@ -103,25 +97,23 @@ const ContactPage = () => {
           variant="body1"
           sx={{
             fontFamily: 'Manrope Variable',
-            marginBottom: '40px',
+            marginBottom: '5vh',
           }}
         >
           Hãy chọn phương thức phù hợp. Tận hưởng những sản phẩm được cô Tư tạo ra dành cho những người yêu thiên nhiên như bạn.
         </Typography>
 
         <Grid 
-          container spacing={15} 
+          container spacing={isMobile ? 8 : 15} 
           justifyContent="center" 
-          sx={{paddingTop:"10px"}}
+          sx={{paddingTop:"2vh"}}
         >
         {itemList.map((item, index) => (
-          <Grid item key={index} >
+          <Grid item key={index}>
             <Box 
               sx={{ 
                 textAlign: 'center',
                 maxWidth: '200px',
-                //margin: '0 auto',
-                
               }}>
               <img 
                 src={item.imageSrc} 
@@ -132,7 +124,7 @@ const ContactPage = () => {
                 sx={{ 
                   fontFamily: 'Manrope Variable', 
                   fontWeight: 'bold',
-                  paddingTop: '8px' 
+                  paddingTop: '1vh' 
                 }}>
                 {item.title}
               </Typography>
@@ -141,7 +133,7 @@ const ContactPage = () => {
                 sx={{ 
                   fontSize:'14px',
                   fontFamily: 'Manrope Variable', 
-                  paddingTop: '4px', 
+                  paddingTop: '0.5vh', 
                   whiteSpace: 'normal', 
                 }}>
                 {item.description}
@@ -154,7 +146,7 @@ const ContactPage = () => {
                   backgroundColor:'black', 
                   fontFamily: 'Manrope Variable', 
                   fontWeight: 'bold',
-                  marginTop: '8px', 
+                  marginTop: '1vh', 
                   borderRadius:'0%', 
                   '&:hover': {
                     backgroundColor: 'white',
