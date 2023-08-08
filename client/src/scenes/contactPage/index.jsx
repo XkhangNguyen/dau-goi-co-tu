@@ -90,7 +90,7 @@ const ContactPage = () => {
         }}
       >
         <Typography
-          variant="h2"
+          variant="h1"
           sx={{
             fontFamily: 'Arima Variable',
             fontWeight: 700,

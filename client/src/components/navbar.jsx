@@ -208,31 +208,26 @@ const NavigationBar = () => {
 
               <Box flexGrow={1} flexBasis={0} display={'flex'} justifyContent="center">
                 <Typography
-                            //variant="h4"
-                            justifyContent='center'
-                            component="a"
-                            href="/"
-                            sx={{
-                                //fontFamily: 'Manrope Variable',
-                                display: 'flex',
-                                //fontWeight: 700,
-                                //color: 'inherit',
-                                //textDecoration: 'none',
-                                //letterSpacing:'5px'
-                        }}>
-                            <Box
-                              sx={{
-                                backgroundImage: `url(${logoImg})`,
-                                backgroundRepeat: 'no-repeat',
-                                backgroundPosition: 'center',
-                                backgroundSize: 'contain',
-                                height: '80px',
-                                width: '80px',
-                                margin: '0 auto',
-                                maxWidth: '100%',
-                              }}>
+                  justifyContent='center'
+                  component="a"
+                  href="/"
+                  sx={{
+                    display: 'flex',
+                  }}
+                >            
+                <Box
+                  sx={{
+                    backgroundImage: `url(${logoImg})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    backgroundSize: 'contain',
+                    height: '80px',
+                    width: '80px',
+                    margin: '0 auto',
+                    maxWidth: '100%',
+                  }}>             
                                 
-                            </Box>
+                 </Box>           
                 </Typography>
               </Box>
 

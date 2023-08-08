@@ -81,13 +81,13 @@ const HomePage = () => {
             
           </Box>
 
-          {renderTilte("SẢN PHẨM TIÊU BIỂU", 'left')}
-          {renderTitleDescription("Những sản phẩm được làm tại nhà sử dụng những nguồn cung cấp xanh, sạch và bền vững.", 'left')}
+          {renderTilte("SẢN PHẨM TIÊU BIỂU", isMobile ? 'center' : 'left')}
+          {renderTitleDescription("Những sản phẩm được làm tại nhà sử dụng những nguồn cung cấp xanh, sạch và bền vững.", isMobile ? 'center' : 'left')}
 
         <Grid container spacing={5} justifyContent="center" sx={{paddingTop:"10px"}}>
         {itemList.map((item, index) => (
           <Grid item key={index}>
-            <Box component="a" href="/" sx={{ textAlign: 'left', textDecoration:'none', color: 'inherit' }}>
+            <Box component="a" href="/" sx={{ textAlign: isMobile ? 'center' : 'left', textDecoration:'none', color: 'inherit' }}>
               <img src={item.imageSrc} alt={`Image ${index + 1}`} style={{ width: isMobile ? '210px' : '280px', height: isMobile ? '300px' : '400px' }} />
               <Typography variant="h6" sx={{paddingTop: '8px' }}>
                 {item.title}

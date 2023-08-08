@@ -64,13 +64,13 @@ const Footer = () => {
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <StyledTypography variant="body1" component='a' href="#products" sx={{marginBottom:'6px'}}>
+                <StyledTypography variant="body1" component='a' href="/" sx={{marginBottom:'6px'}}>
                   TRANG CHỦ
                 </StyledTypography>
-                <StyledTypography variant="body1" component='a' href="#products" sx={{marginBottom:'6px'}}>
+                <StyledTypography variant="body1" component='a' href="/" sx={{marginBottom:'6px'}}>
                   SẢN PHẨM
                 </StyledTypography>
-                <StyledTypography variant="body1" component='a' href="#products" sx={{marginBottom:'6px'}}>
+                <StyledTypography variant="body1" component='a' href="/" sx={{marginBottom:'6px'}}>
                   GIỚI THIỆU
                 </StyledTypography>
                 <StyledTypography variant="body1" component='a' href="/contact" sx={{marginBottom:'6px'}}>
