@@ -12,11 +12,19 @@ const theme = createTheme({
     h6: {
       fontFamily: 'Manrope Variable',
       fontWeight: 550,
+      color: '#434343',
+    },
+
+    h5: {
+      fontFamily: 'Manrope Variable',
+      fontWeight: 550,
+      fontSize:'20px',
       color: 'Black',
     },
 
     body1:{
       fontFamily: 'Manrope Variable',
+      color: '#6c6e6b',
     }
   },
 });

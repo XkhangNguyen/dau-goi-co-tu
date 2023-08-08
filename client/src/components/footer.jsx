@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Container, Typography, ListItem } from '@mui/material';
 import zaloLogo from './../assets/images/logo_Zalo.png';
 import facebookLogo from './../assets/images/logo_Facebook.png';
-import { styled } from '@mui/material/styles';
 import StyledTypography from './styledTypography';
 import useCheckMobileScreen from './checkMobileScreen';
 
@@ -32,7 +31,7 @@ const Footer = () => {
               sx={{
                 fontFamily: 'Manrope Variable',
                 fontWeight: 700,
-                marginBottom: '15px',
+                marginBottom: '2vh',
                 textAlign: isMobile ? 'center' : 'left',
               }}
             >
@@ -43,7 +42,7 @@ const Footer = () => {
               sx={{
                 fontFamily: 'Manrope Variable',
                 color: 'gray',
-                marginBottom:'15px',
+                marginBottom:'2vh',
                 textAlign: isMobile ? 'center' : 'left',
               }}
             >
@@ -57,23 +56,23 @@ const Footer = () => {
               sx={{
                 fontFamily: 'Manrope Variable',
                 fontWeight: 700,
-                marginBottom: '10px',
+                marginBottom: '2vh',
               }}
             >
               TRUY CẬP NHANH
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <StyledTypography variant="body1" component='a' href="/" sx={{marginBottom:'6px'}}>
+                <StyledTypography variant="body1" component='a' href="/" sx={{marginBottom:'2vh'}}>
                   TRANG CHỦ
                 </StyledTypography>
-                <StyledTypography variant="body1" component='a' href="/" sx={{marginBottom:'6px'}}>
+                <StyledTypography variant="body1" component='a' href="/san-pham" sx={{marginBottom:'2vh'}}>
                   SẢN PHẨM
                 </StyledTypography>
-                <StyledTypography variant="body1" component='a' href="/" sx={{marginBottom:'6px'}}>
+                <StyledTypography variant="body1" component='a' href="/gioi-thieu" sx={{marginBottom:'2vh'}}>
                   GIỚI THIỆU
                 </StyledTypography>
-                <StyledTypography variant="body1" component='a' href="/contact" sx={{marginBottom:'6px'}}>
+                <StyledTypography variant="body1" component='a' href="/lien-he" sx={{marginBottom:'2vh'}}>
                   LIÊN HỆ
                 </StyledTypography>
             </Box>
@@ -100,7 +99,7 @@ const Footer = () => {
                     variant="body1" 
                     sx={{ 
                       fontFamily: 'Manrope Variable', 
-                      paddingTop: '8px', 
+                      paddingTop: '1vh', 
                       color: 'gray',
                     }}>
                     0913767029
@@ -116,7 +115,7 @@ const Footer = () => {
                     variant="body1"
                     sx={{ 
                       fontFamily: 'Manrope Variable', 
-                      paddingTop: '8px', 
+                      paddingTop: '1vh', 
                       color: 'gray',
                     }}>
                      <a 

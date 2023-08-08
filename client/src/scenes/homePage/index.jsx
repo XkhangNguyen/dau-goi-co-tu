@@ -5,6 +5,7 @@ import '@fontsource-variable/arima';
 import heroBackground from './../../assets/images/hero.jpg'
 import botGoiDauImg from './../../assets/images/bot_goi_dau.jpg'
 import useCheckMobileScreen from '../../components/checkMobileScreen';
+import ingredientsImg from './../../assets/images/ingredients.jpg'
 
 const HomePage = () => {
   const isMobile = useCheckMobileScreen();
@@ -14,7 +15,7 @@ const HomePage = () => {
             variant="h1"
             sx={{
               textAlign: alignText,
-              paddingTop: isMobile ? '30px' : '50px',
+              paddingTop: isMobile ? '4vh' : '5vh',
             }}
           >
             {text}
@@ -26,7 +27,7 @@ const HomePage = () => {
             variant="h6"
             sx={{
               textAlign: alignText,
-              paddingTop: '16px',
+              paddingTop: '2.5vh',
               paddingBottom:'10px'
             }}
           >
@@ -82,23 +83,56 @@ const HomePage = () => {
           </Box>
 
           {renderTilte("SẢN PHẨM TIÊU BIỂU", isMobile ? 'center' : 'left')}
-          {renderTitleDescription("Những sản phẩm được làm tại nhà sử dụng những nguồn cung cấp xanh, sạch và bền vững.", isMobile ? 'center' : 'left')}
+          {renderTitleDescription("Những sản phẩm được làm tại nhà sử dụng những nguồn cung cấp xanh, sạch và bền vững. Cô Tư cam kết mang đến cho bạn trải nghiệm chăm sóc bản thân hiệu quả và thân thiện với môi trường. ", isMobile ? 'center' : 'left')}
 
-        <Grid container spacing={5} justifyContent="center" sx={{paddingTop:"10px"}}>
+        <Grid container spacing={5} justifyContent="center" sx={{paddingTop:"10px", paddingBottom:'50px'}}>
         {itemList.map((item, index) => (
           <Grid item key={index}>
             <Box component="a" href="/" sx={{ textAlign: isMobile ? 'center' : 'left', textDecoration:'none', color: 'inherit' }}>
               <img src={item.imageSrc} alt={`Image ${index + 1}`} style={{ width: isMobile ? '210px' : '280px', height: isMobile ? '300px' : '400px' }} />
-              <Typography variant="h6" sx={{paddingTop: '8px' }}>
+              <Typography variant="h5" sx={{paddingTop: '1vh' }}>
                 {item.title}
               </Typography>
-              <Typography variant="body1" sx={{ paddingTop: '4px' }}>
+              <Typography variant="body1" sx={{ paddingTop: '0.5vh' }}>
                 {item.description}
               </Typography>
             </Box>
           </Grid>
           ))}
         </Grid>
+
+        <Box 
+          display="flex" 
+          flexDirection={isMobile ? 'column' : 'row'}
+          alignItems={'center'}
+          sx={{
+            paddingTop: '1vh', 
+            paddingBottom: isMobile ? 0 : '50px'
+          }}
+        >
+          <Box flex="1" paddingRight={isMobile ? 0 : "4vh"} marginTop={isMobile ? '-4vh' : '-10vh'}>
+            {renderTilte("NGUYÊN LIỆU QUEN THUỘC CỦA NGƯỜI VIỆT",  isMobile ? 'center' : 'left')}
+            {renderTitleDescription("Sử dụng các loại thảo mộc đặc trưng của Việt Nam, những sản phẩm của cô Tư luôn đem lại cảm giác thân thuộc nhưng lại rất mới mẻ.", isMobile ? 'center' : 'left')}
+          </Box>
+          
+          <Box flex="1">
+            <Box
+                sx={{
+                  backgroundImage: `url(${ingredientsImg})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center',
+                  backgroundSize: 'contain',
+                  height: isMobile ? '500px' : '500px',
+                  width: isMobile ? '300px' : 'inherit',
+                  margin: '0 auto',
+                  maxWidth: '100%',
+                }}
+            >
+                
+            </Box>
+          </Box>
+        </Box>
+
         </Container>
 
     </div>

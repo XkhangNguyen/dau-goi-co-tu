@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
 import MobileNavbar from "./components/navbar_mobile";
 import Footer from "./components/footer";
@@ -20,7 +20,7 @@ function App() {
         <BrowserRouter> 
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/lien-he" element={<ContactPage />} />
             </Routes>
         </BrowserRouter>
       </ThemeProvider>

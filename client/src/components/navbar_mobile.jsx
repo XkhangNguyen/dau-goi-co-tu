@@ -11,18 +11,18 @@ const navTabs = [
   {
     text: 'SẢN PHẨM',
     dropdownItems: [
-      { text: 'Dầu gội', href: '/subitem1' },
-      { text: 'Sữa tắm', href: '/subitem2' },
-      { text: 'Bột gội đầu', href: '/subitem3' },
+      { text: 'Dầu gội', href: '/san-pham/dau-goi' },
+      { text: 'Sữa tắm', href: '/san-pham/sua-tam' },
+      { text: 'Bột gội đầu', href: '/san-pham/bot-goi-dau' },
     ],
   },
   {
     text: 'GIỚI THIỆU',
     dropdownItems: [
-      { text: 'Câu chuyện của cô Tư', href: '/subitem3' },
-      { text: 'Lịch sử phát triển', href: '/subitem4' },
-      { text: 'Thành tích', href: '/subitem4' },
-      { text: 'Blog', href: '/subitem4' },
+      { text: 'Câu chuyện của cô Tư', href: '/gioi-thieu/cau-chuyen-cua-co-tu' },
+      { text: 'Lịch sử phát triển', href: '/gioi-thieu/lich-su-phat-trien' },
+      { text: 'Thành tích', href: '/gioi-thieu/thanh-tich' },
+      { text: 'Blog', href: '/gioi-thieu/blog' },
     ],
   },
 ];
@@ -30,7 +30,7 @@ const navTabs = [
 const navLinks = [
   {
     text : 'Liên hệ',
-    href: '/contact',
+    href: '/lien-he',
   },
 ]
 

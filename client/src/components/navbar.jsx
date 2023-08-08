@@ -183,9 +183,9 @@ const NavigationBar = () => {
               <Box sx={{ flexGrow: 1.5, display: 'flex', justifyContent: 'flex-start', flexBasis: 0 }}>
                       {renderCustomNavItem(renderTextAlignWithIcon('SẢN PHẨM', handleProductDropdownToggle, 'product-icon', productIconRef))}
                       {showProductDropdown && renderDropDownMenu([
-                        renderDropDownItem('DẦU GỘI', '/'),
-                        renderDropDownItem('SỮA TẮM', '/'),
-                        renderDropDownItem('BỘT GỘI ĐẦU', '/'),
+                        renderDropDownItem('DẦU GỘI', '/san-pham/dau-goi'),
+                        renderDropDownItem('SỮA TẮM', '/san-pham/sua-tam'),
+                        renderDropDownItem('BỘT GỘI ĐẦU', '/san-pham/bot-goi-dau'),
                         ],
                         document.getElementById('product-icon'),
                         productDropdownRef
@@ -194,16 +194,16 @@ const NavigationBar = () => {
 
                       {renderCustomNavItem(renderTextAlignWithIcon('GIỚI THIỆU', handleAboutDropdownToggle, 'about-icon', aboutIconRef))}
                       {showAboutDropdown && renderDropDownMenu([
-                        renderDropDownItem('CÂU CHUYỆN CỦA CÔ TƯ', '/'),
-                        renderDropDownItem('LỊCH SỬ PHÁT TRIỂN', '/'),
-                        renderDropDownItem('THÀNH TÍCH', '/'),
-                        renderDropDownItem('BLOG', '/'),
+                        renderDropDownItem('CÂU CHUYỆN CỦA CÔ TƯ', '/gioi-thieu/cau-chuyen-cua-co-tu'),
+                        renderDropDownItem('LỊCH SỬ PHÁT TRIỂN', '/gioi-thieu/lich-su-phat-trien'),
+                        renderDropDownItem('THÀNH TÍCH', '/gioi-thieu/thanh-tich'),
+                        renderDropDownItem('BLOG', '/gioi-thieu/blog'),
                         ],
                         document.getElementById('about-icon'),
                         aboutDropdownRef
                       )}
 
-                      {renderCustomNavItemWithLink('LIÊN HỆ','/contact')}
+                      {renderCustomNavItemWithLink('LIÊN HỆ','/lien-he')}
               </Box>
 
               <Box flexGrow={1} flexBasis={0} display={'flex'} justifyContent="center">
@@ -232,7 +232,7 @@ const NavigationBar = () => {
               </Box>
 
               <Box flexGrow={1.5} display={'flex'} justifyContent={'flex-end'} flexBasis={0}>
-                {renderCustomNavItemWithLink('MUA NGAY','/contact')}
+                {renderCustomNavItemWithLink('MUA NGAY','/lien-he')}
               </Box>
             </Toolbar>
         </Container>
