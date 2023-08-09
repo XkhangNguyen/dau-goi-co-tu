@@ -2,8 +2,10 @@ import React from 'react';
 import { Grid, Container, Typography, Box } from '@mui/material';
 import '@fontsource-variable/manrope';
 import '@fontsource-variable/arima';
-import heroBackground from './../../assets/images/hero.jpg'
-import botGoiDauImg from './../../assets/images/bot_goi_dau.jpg'
+import heroBackground from './../../assets/images/hero.jpg';
+import botGoiDauImg from './../../assets/images/bot_goi_dau.jpg';
+import dauGoiImg from './../../assets/images/dau_goi.jpg';
+import suaTamImg from './../../assets/images/sua_tam.jpg';
 import useCheckMobileScreen from '../../components/checkMobileScreen';
 import ingredientsImg from './../../assets/images/ingredients.jpg'
 
@@ -37,19 +39,19 @@ const HomePage = () => {
 
   const itemList = [
     {
-      imageSrc: botGoiDauImg,
+      imageSrc: dauGoiImg,
       title: 'DẦU GỘI BỒ KẾT THẢO MỘC',
-      description: 'Description for Image 2',
+      description: 'Làm sạch da đầu, giảm rụng tóc, gàu, ngứa và nấm da đầu, kích thích mọc tóc.',
     },
     {
-      imageSrc: botGoiDauImg,
+      imageSrc: suaTamImg,
       title: 'SỮA TẮM GỪNG NGHỆ',
-      description: 'Description for Image 3',
+      description: 'Chứa gừng giúp làm ấm cơ thể cùng với nghệ khiến làn da mịn màng.',
     },
     {
       imageSrc: botGoiDauImg,
       title: 'BỘT GỘI ĐẦU 15 VỊ',
-      description: 'Description for Image 1',
+      description: '100% thảo mộc không sử dụng chất bảo quản.',
     },
   ];
 
@@ -83,7 +85,7 @@ const HomePage = () => {
           </Box>
 
           {renderTilte("SẢN PHẨM TIÊU BIỂU", isMobile ? 'center' : 'left')}
-          {renderTitleDescription("Những sản phẩm được làm tại nhà sử dụng những nguồn cung cấp xanh, sạch và bền vững. Cô Tư cam kết mang đến cho bạn trải nghiệm chăm sóc bản thân hiệu quả và thân thiện với môi trường. ", isMobile ? 'center' : 'left')}
+          {renderTitleDescription("Sản phẩm được làm bằng nguồn thảo mộc được trồng hữu cơ tại vườn nhà ở Củ Chi và Tiền Giang. Cô Tư cam kết mang đến cho bạn trải nghiệm chăm sóc bản thân bằng cỏ cây hoa lá, thuần thiên nhiên. ", isMobile ? 'center' : 'left')}
 
         <Grid container spacing={5} justifyContent="center" sx={{paddingTop:"2vh", paddingBottom:'8vh'}}>
         {itemList.map((item, index) => (
@@ -93,7 +95,7 @@ const HomePage = () => {
               <Typography variant="h5" sx={{paddingTop: '1vh' }}>
                 {item.title}
               </Typography>
-              <Typography variant="body1" sx={{ paddingTop: '0.5vh' }}>
+              <Typography variant="body1" sx={{ maxWidth: isMobile ? '30vh' : '27vh', paddingTop: '0.5vh' }}>
                 {item.description}
               </Typography>
             </Box>
@@ -107,12 +109,12 @@ const HomePage = () => {
           alignItems={'center'}
           sx={{
             paddingTop: '1vh', 
-            paddingBottom: isMobile ? 0 : '50px'
+            paddingBottom:'5vh'
           }}
         >
           <Box flex="1" paddingRight={isMobile ? 0 : "4vh"} marginTop={isMobile ? '-8vh' : '-10vh'}>
             {renderTilte("NGUYÊN LIỆU QUEN THUỘC CỦA NGƯỜI VIỆT",  isMobile ? 'center' : 'left')}
-            {renderTitleDescription("Sử dụng các loại thảo mộc đặc trưng của Việt Nam, những sản phẩm của cô Tư luôn đem lại cảm giác thân thuộc nhưng lại rất mới mẻ.", isMobile ? 'center' : 'left')}
+            {renderTitleDescription("Sản phẩm cô Tư gìn giữ truyền thống sử dụng thảo mộc sẵn có trong vườn nhà để tắm gội của các bà, các mẹ Việt Nam từ xưa đến nay.", isMobile ? 'center' : 'left')}
           </Box>
           
           <Box flex="1">

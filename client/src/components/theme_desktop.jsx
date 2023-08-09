@@ -17,12 +17,13 @@ const theme = createTheme({
 
     h5: {
       fontFamily: 'Manrope Variable',
-      fontWeight: 550,
+      fontWeight: 700,
       fontSize:'20px',
       color: 'Black',
     },
 
     body1:{
+      fontWeight: 700,
       fontFamily: 'Manrope Variable',
       color: '#6c6e6b',
     }

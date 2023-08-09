@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import { Grid, Container, Typography, Box, Button, Snackbar, Alert } from '@mui/material';
 import zaloLogo from './../../assets/images/logo_Zalo.png';
 import facebookLogo from './../../assets/images/logo_Facebook.png';
+import qrZalo from './../../assets/images/qr_zalo.jpg';
 import useCheckMobileScreen from '../../components/checkMobileScreen';
 
 const ContactPage = () => {
   const isMobile = useCheckMobileScreen();
+  const [qrOpen, setQrOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
 
     const itemList = [
         {
-          imageSrc: zaloLogo,
+          imageSrc: qrOpen ? qrZalo : zaloLogo,
           title: 'ZALO',
           description: 'Số điện thoại: 0916265599',
           type: 'zalo',
@@ -26,6 +28,9 @@ const ContactPage = () => {
         },
     ];
 
+    const handleToggleOpenQr = () => {
+      setQrOpen((qrOpen) => !qrOpen);
+    }
 
     const handleCopyText = (item) => {
       switch (item.type) {
@@ -119,6 +124,8 @@ const ContactPage = () => {
                 src={item.imageSrc} 
                 alt={`Logo ${index + 1}`} 
                 style={{ width: '200px', height: '200px' }} />
+
+              {/* Item Title */}
               <Typography 
                 variant="h6" 
                 sx={{ 
@@ -128,6 +135,8 @@ const ContactPage = () => {
                 }}>
                 {item.title}
               </Typography>
+
+              {/*Item description*/} 
               <Typography 
                 variant="body1" 
                 sx={{ 
@@ -155,6 +164,27 @@ const ContactPage = () => {
                 }}>  
                 {renderButtonText(item.type)}
               </Button>
+
+              {
+                item.type === 'zalo' && (
+                  <Button 
+                    variant="contained" 
+                    onClick={() =>  handleToggleOpenQr()} 
+                    sx={{
+                      backgroundColor:'black', 
+                      fontFamily: 'Manrope Variable', 
+                      fontWeight: 'bold',
+                      marginTop: '1vh', 
+                      borderRadius:'0%', 
+                      '&:hover': {
+                        backgroundColor: 'white',
+                        color: 'black',
+                      },
+                  }}>  
+                Sử dụng mã QR
+              </Button>
+                )
+              }
             </Box>
           </Grid>
           ))}
