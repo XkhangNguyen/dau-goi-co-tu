@@ -46,7 +46,7 @@ const Footer = () => {
                 textAlign: isMobile ? 'center' : 'left',
               }}
             >
-              Địa Chỉ: 83/1C, Phạm Văn Bạch, P.15, Q.Tân Bình, TP.HCM<br />
+              Địa Chỉ: 83/1, Phạm Văn Bạch, P.15, Q.Tân Bình, TP.HCM<br />
             </Typography>
           </Box>
 
