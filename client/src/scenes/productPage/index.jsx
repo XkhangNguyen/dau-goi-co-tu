@@ -30,7 +30,7 @@ const ProductPage = () => {
     'bot-goi-dau': {
       title: 'BỘT GỘI ĐẦU 15 VỊ',
       price: '60,000',
-      quantity: '5 gói',
+      quantity: '10 túi lọc',
       imageSrc: goiBotImg,
       ingredients: 'Bồ kết tách hạt nướng, bồ hòn, hà thủ ô đỏ, cỏ mực, cỏ ngũ sắc, cỏ mần trầu, xuyến chi, hương nhu, gừng, sả, vỏ bưởi, lá neem, núc nác, quế, chanh khô.',
       usage: ['Làm sạch da đầu, kích thích mọc tóc, hạn chế bạc tóc sớm ở người trẻ, giảm rụng, giảm gàu, ngứa và viêm da đầu.'],
