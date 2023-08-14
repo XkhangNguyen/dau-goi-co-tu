@@ -66,9 +66,9 @@ const Footer = () => {
                 <StyledTypography variant="body1" component='a' href="/" sx={{marginBottom:'2vh'}}>
                   TRANG CHỦ
                 </StyledTypography>
-                <StyledTypography variant="body1" component='a' href="/san-pham" sx={{marginBottom:'2vh'}}>
+                {/* <StyledTypography variant="body1" component='a' href="/san-pham" sx={{marginBottom:'2vh'}}>
                   SẢN PHẨM
-                </StyledTypography>
+                </StyledTypography> */}
                 <StyledTypography variant="body1" component='a' href="/gioi-thieu" sx={{marginBottom:'2vh'}}>
                   GIỚI THIỆU
                 </StyledTypography>

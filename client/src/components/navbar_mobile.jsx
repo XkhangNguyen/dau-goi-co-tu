@@ -16,18 +16,22 @@ const navTabs = [
       { text: 'Bột gội đầu', href: '/san-pham/bot-goi-dau' },
     ],
   },
-  {
-    text: 'GIỚI THIỆU',
-    dropdownItems: [
-      { text: 'Câu chuyện của cô Tư', href: '/gioi-thieu/cau-chuyen-cua-co-tu' },
-      { text: 'Lịch sử phát triển', href: '/gioi-thieu/lich-su-phat-trien' },
-      { text: 'Thành tích', href: '/gioi-thieu/thanh-tich' },
-      { text: 'Blog', href: '/gioi-thieu/blog' },
-    ],
-  },
+  // {
+  //   text: 'GIỚI THIỆU',
+  //   dropdownItems: [
+  //     { text: 'Câu chuyện của cô Tư', href: '/gioi-thieu/cau-chuyen-cua-co-tu' },
+  //     { text: 'Lịch sử phát triển', href: '/gioi-thieu/lich-su-phat-trien' },
+  //     { text: 'Thành tích', href: '/gioi-thieu/thanh-tich' },
+  //     { text: 'Blog', href: '/gioi-thieu/blog' },
+  //   ],
+  // },
 ];
 
 const navLinks = [
+  {
+    text : 'Giới thiệu',
+    href : '/gioi-thieu'
+  },
   {
     text : 'Liên hệ',
     href: '/lien-he',

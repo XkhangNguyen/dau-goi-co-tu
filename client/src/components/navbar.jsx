@@ -7,11 +7,11 @@ import logoImg from './../assets/images/logo_CoTu.png';
 
 const NavigationBar = () => {
   const [showProductDropdown, setShowProductDropdown] = useState(false);
-  const [showAboutDropdown, setShowAboutDropdown] = useState(false);
+  //const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const productDropdownRef = useRef(null);
-  const aboutDropdownRef = useRef(null);
+  //const aboutDropdownRef = useRef(null);
   const productIconRef = useRef(null);
-  const aboutIconRef = useRef(null);  
+  //const aboutIconRef = useRef(null);  
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -58,17 +58,17 @@ const NavigationBar = () => {
 
 
   clickOutSideIconBox(productDropdownRef, productIconRef, () => setShowProductDropdown(false));
-  clickOutSideIconBox(aboutDropdownRef, aboutIconRef, () => setShowAboutDropdown(false));
+  //clickOutSideIconBox(aboutDropdownRef, aboutIconRef, () => setShowAboutDropdown(false));
 
   const handleProductDropdownToggle = () => {
     setShowProductDropdown((prevShowProductDropdown) => !prevShowProductDropdown);
-    setShowAboutDropdown(false);
+    //setShowAboutDropdown(false);
   };
 
-  const handleAboutDropdownToggle = () => {
-    setShowAboutDropdown((prevShowAboutDropdown) => !prevShowAboutDropdown);
-    setShowProductDropdown(false);
-  };
+  // const handleAboutDropdownToggle = () => {
+  //   setShowAboutDropdown((prevShowAboutDropdown) => !prevShowAboutDropdown);
+  //   setShowProductDropdown(false);
+  // };
 
   const renderCustomNavItem = (element) => (
       <Typography 
@@ -192,7 +192,7 @@ const NavigationBar = () => {
                       )}
                       
 
-                      {renderCustomNavItem(renderTextAlignWithIcon('GIỚI THIỆU', handleAboutDropdownToggle, 'about-icon', aboutIconRef))}
+                      {/* {renderCustomNavItem(renderTextAlignWithIcon('GIỚI THIỆU', handleAboutDropdownToggle, 'about-icon', aboutIconRef))}
                       {showAboutDropdown && renderDropDownMenu([
                         renderDropDownItem('CÂU CHUYỆN CỦA CÔ TƯ', '/gioi-thieu/cau-chuyen-cua-co-tu'),
                         renderDropDownItem('LỊCH SỬ PHÁT TRIỂN', '/gioi-thieu/lich-su-phat-trien'),
@@ -201,8 +201,9 @@ const NavigationBar = () => {
                         ],
                         document.getElementById('about-icon'),
                         aboutDropdownRef
-                      )}
+                      )} */}
 
+                      {renderCustomNavItemWithLink(' GIỚI THIỆU','/gioi-thieu')} 
                       {renderCustomNavItemWithLink('LIÊN HỆ','/lien-he')}
               </Box>
 

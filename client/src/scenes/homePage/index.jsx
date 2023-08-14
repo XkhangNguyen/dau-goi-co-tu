@@ -26,15 +26,15 @@ const HomePage = () => {
 
   const renderTitleDescription = (text, alignText) => (
     <Typography
-            variant="h6"
-            sx={{
-              textAlign: alignText,
-              paddingTop: '2.5vh',
-              paddingBottom:'2vh'
-            }}
-          >
-            {text}
-          </Typography>
+      variant="h6"
+      sx={{
+        textAlign: alignText,
+        paddingTop: '2.5vh',
+        paddingBottom:'2vh'
+      }}
+    >
+      {text}
+    </Typography>
   );
 
   const itemList = [
@@ -42,16 +42,19 @@ const HomePage = () => {
       imageSrc: dauGoiImg,
       title: 'DẦU GỘI BỒ KẾT THẢO MỘC',
       description: 'Làm sạch da đầu, giảm rụng tóc, gàu, ngứa và nấm da đầu, kích thích mọc tóc.',
+      link: '/dau-goi',
     },
     {
       imageSrc: suaTamImg,
       title: 'SỮA TẮM GỪNG NGHỆ',
       description: 'Chứa gừng giúp làm ấm cơ thể cùng với nghệ khiến làn da mịn màng.',
+      link: '/sua-tam',
     },
     {
       imageSrc: botGoiDauImg,
       title: 'BỘT GỘI ĐẦU 15 VỊ',
       description: '100% thảo mộc không sử dụng chất bảo quản.',
+      link: '/bot-goi-dau',
     },
   ];
 
@@ -87,10 +90,10 @@ const HomePage = () => {
           {renderTilte("SẢN PHẨM TIÊU BIỂU", isMobile ? 'center' : 'left')}
           {renderTitleDescription("Sản phẩm được làm bằng nguồn thảo mộc được trồng hữu cơ tại vườn nhà ở Củ Chi và Tiền Giang. Cô Tư cam kết mang đến cho bạn trải nghiệm chăm sóc bản thân bằng cỏ cây hoa lá, thuần thiên nhiên. ", isMobile ? 'center' : 'left')}
 
-        <Grid container spacing={5} justifyContent="center" sx={{paddingTop:"2vh", paddingBottom:'8vh'}}>
+        <Grid container spacing={6} justifyContent="center" sx={{paddingTop:"2vh", paddingBottom:'8vh'}}>
         {itemList.map((item, index) => (
           <Grid item key={index}>
-            <Box component="a" href="/" sx={{ textAlign: isMobile ? 'center' : 'left', textDecoration:'none', color: 'inherit' }}>
+            <Box component="a" href= {'/san-pham' + item.link} sx={{ textAlign: isMobile ? 'center' : 'left', textDecoration:'none', color: 'inherit' }}>
               <img src={item.imageSrc} alt={`Image ${index + 1}`} style={{ width: isMobile ? '30vh' : '280px', height: isMobile ? '40vh' : '400px' }} />
               <Typography variant="h5" sx={{paddingTop: '1vh' }}>
                 {item.title}
