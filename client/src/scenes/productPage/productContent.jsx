@@ -123,7 +123,7 @@ const ProductContent = ({ title, price, quantity, imageSrc, ingredients, usage, 
                       {ingredientsOpen ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
                     </IconButton>
                     <IconButton onClick={handleIngredientsToggle}>
-                      <Typography variant="h5">TẤT CẢ NGUYÊN LIỆU</Typography>
+                      <Typography variant="h5">NGUYÊN LIỆU</Typography>
                     </IconButton>
                   </Box>
                   <Collapse in={ingredientsOpen}>
