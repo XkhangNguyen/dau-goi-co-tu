@@ -12,6 +12,7 @@ import useCheckMobileScreen from "./components/checkMobileScreen";
 import { ThemeProvider } from "@emotion/react";
 import desktopTheme from "./components/theme_desktop"
 import mobileTheme from "./components/theme_mobile"
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const isMobile = useCheckMobileScreen();
@@ -29,8 +30,9 @@ function App() {
         </BrowserRouter>
       </ThemeProvider>
       <Footer />
+      <Analytics />
     </div>
-    
+
   )
 }
 
